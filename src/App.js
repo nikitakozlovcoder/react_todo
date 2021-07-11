@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+
+import 'bootstrap/dist/css/bootstrap.css';
+import AllTasksPage from "./Pages/AllTasksPage";
+import React from "react";
+import {
+  Switch,
+  Route,
+} from "react-router-dom";
+import NewTaskPage from "./Pages/NewTaskPage";
+import Layout from "./Layout/Layout";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+        <Layout>
+
+          {/*
+          A <Switch> looks through all its children <Route>
+          elements and renders the first one whose path
+          matches the current URL. Use a <Switch> any time
+          you have multiple routes, but you want only one
+          of them to render at a time
+        */}
+          <Switch>
+            <Route exact path="/">
+              <AllTasksPage/>
+            </Route>
+            <Route path="/new">
+              <NewTaskPage/>
+            </Route>
+          </Switch>
+        </Layout>
+
   );
 }
 

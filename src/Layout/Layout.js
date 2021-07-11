@@ -10,7 +10,6 @@ export default class AllTasksPage extends React.Component{
             {this.props.children}
 
             <Footer/>
-np
         </main>
 
     }
